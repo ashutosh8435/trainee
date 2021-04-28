@@ -25,4 +25,7 @@ Route::get('Home', function () {
     return view('Home');
 });
 
-Route::get('user','UserControllers@hello');
+//Route::get('dummy','DummyControllers@getdata');
+Route::get('user','UserControllers@data3');
+
+

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\facades\DB;
 class UserControllers extends Controller
 {
-    function hello()
+    
+    function data3()
     {
-        return "hello world";
+        return DB::select("select * from dummy");
     }
 }
