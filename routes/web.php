@@ -24,7 +24,12 @@ Route::get('singup', function () {
 Route::get('Home', function () {
     return view('Home');
 });
-
+Route::get('index', function () {
+    return view('index');
+});
+Route::get('about', function () {
+    return view('About');
+});
 //Route::get('dummy','DummyControllers@getdata');
 Route::get('user','UserControllers@data3');
 
