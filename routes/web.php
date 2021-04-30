@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use app\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,23 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('singup', function () {
-    return view('singup');
-});
-Route::get('Home', function () {
-    return view('Home');
-});
-Route::get('index', function () {
+Route::get('/', function () {
     return view('index');
 });
-Route::get('about', function () {
-    return view('About');
-});
-//Route::get('dummy','DummyControllers@getdata');
-Route::get('user','UserControllers@data3');
-
-
+Route::get('one','OneRelationController@index');
