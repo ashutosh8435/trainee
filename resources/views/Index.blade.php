@@ -9,12 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
-<title>Fitcento</title>
+<title> fitcento -@yield('title')</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">	
 <!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{asset('css/bootstrap.min.css')"}>
 <!-- style css -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <!-- Responsive-->
@@ -33,42 +33,7 @@
 </head>
 <body>
 	<!--header section start -->
-    <div class="header_section">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
-                </div>
-                <div class="col-md-9">
-                    <div class="menu_text">
-                        <ul>
-                            <li><a href="index.html">HOME</a></li>                                                    
-                            <li><a href="about.html">ABOUT</a></li>
-                            <li><a href="price.html">PACKAGE</a></li>
-                            <li><a href="gym.html">TRAINING</a></li>
-                            <li><a href="contact.html">CONTACT US</a></li>
-                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                            <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                  <a href="index.html">HOME</a>
-                  <a href="about.html">ABOUT</a>
-                  <a href="price.html">PRICE</a>
-                  <a href="gym.html">GYM</a>
-                  <a href="class.html">CLASS</a>
-                  <a href="contact.html">CONTACT US</a>
-                  <a href="#">LOGIN</a>
-                  <a href="#">REGISTER</a>
-                </div>
-                </div>
-                <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle.png" class="toggle_menu"></span>
-                </div>  
-                </li>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-    </div>
+   @include('header')
     <!-- header section end -->
     <!-- banner section start -->
     <div class="banner_section layout_padding">
@@ -127,28 +92,9 @@
     </div>
     <!-- banner section end -->
     <!-- about section start -->
-    <div class="about_section_2 layout_padding">
-        <div class="container">
-            <h1 class="about_text_2"><strong>ABOUT US</strong></h1>
-            <p class="client_long_text">It is a long established fact that a reader will be distracted by the readable</p>
-        </div>
-    </div>
-    <div class="about_section">
-    	<div class="row">
-    		<div class="col-md-6">
-    			<div class="about_taital">
-    				<h1 class="about_text">ABOUT OUR GYM</h1>
-    				<p class="long_text_2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and webIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web</p>
-    				<div class="about_bt"><a href="#">ABOUT MORE</a></div>
-    			</div>
-    		</div>
-    		<div class="col-md-6">
-    			<div class="about_img"><img src="images/about-bg.png"></div>
-    		</div>
-    	</div>
-    </div>
+    @yield('content')
     <!-- about section end -->
-    <!-- our service section start -->
+    <!-- our service section start
     <div class="our_section layout_padding">
     	<div class="container">
     		<h1 class="our_text"><strong>OUR CLASSES</strong></h1>
@@ -176,8 +122,8 @@
     		
     	</div>
     </div>
-    <!-- our service section end -->
-    <!-- project section start -->
+ our service section end -->
+    <!-- project section start 
     <div class="project_section layout_padding">
     	<div class="container">
     		<h1 class="partner_text">PARTNER<br> UP-DOUBLE POWER</h1>
@@ -188,8 +134,8 @@
             </div>            
     	</div>
     </div>
-    <!-- project section end -->   
-    <!-- our price section start -->   
+     project section end -->   
+    <!-- our price section start   
     <div class="our_price_section layout_padding">
     	<div class="container">
     		<h1 class="our_price"><strong>OUR PRICE</strong></h1>
@@ -243,78 +189,13 @@
             </div>
     	</div>
     </div> 
-    <!-- our price section end -->   
+     our price section end -->   
 
     <!-- contact section start -->
-    <div class="about_section_2 layout_padding">
-        <div class="container">
-            <h1 class="contact_text_2"><strong>CONTACT US</strong></h1>
-            <p class="client_long_text">It is a long established fact that a reader will be distracted by the readable</p>
-        </div>
-    </div>
-    <div class="contact_section">
-    	<div class="row">
-    		<div class="col-md-6 background_bg">
-    			<div class="contact_bg">
-    				<div class="input_main">
-                       <div class="container">
-                       	<h2 class="request_text">REQUEST A CALL BACK</h2>
-                          <form action="/action_page.php">
-                            <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Your Name" name="Name">
-                            </div>
-                            <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Email" name="Email">
-                            </div>
-                            <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Phone" name="Email">
-                            </div>
-                            <form action="/action_page.php">
-                                <div class="form-group">
-                                  <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="text"></textarea>
-                                </div>
-                            </form>
-                          </form>
-                       </div> 
-                    </div>
-                    <div class="send_bt"><a href="#">SEND</a></div>
-    			</div>
-    		</div>
-    		<div class="col-md-6">
-                <div class="map-responsive">
-                    <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="560" frameborder="0" style="border:0; width: 100%;" allowfullscreen></iframe>
-                </div>
-    	    </div>
-    	</div>
-    </div>
+   
     <!-- contact section end -->
     <!-- footer section start -->
-    <div class="footer_section layout_padding">
-        <div class="footer_section_2">
-    	    <div class="container">
-    		    <div class="row map_addres">
-    		    	<div class="col-sm-12 col-lg-4">
-    		    		<div class="map_text"><img src="images/map-icon.png"><span class="map_icon">No.123 Chalingt Gates, Supper market New York</span></div>
-    		    	</div>
-                    <div class="col-sm-12 col-lg-4">
-                    	<div class="map_text"><img src="images/phone-icon.png"><span class="map_icon">( +71 7986543234 )</span></div>
-                    </div>
-    		    	<div class="col-sm-12 col-lg-4">
-    		    		<div class="map_text"><img src="images/email-icon.png"><span class="map_icon">demo@gmail.com</span></div>
-    		    	</div>
-    		    </div>
-    		    <div class="social_icon">
-    		    	<ul>
-    		    		<li><a href="#"><img src="images/fb-icon.png"></a></li>
-    		    		<li><a href="#"><img src="images/twitter-icon.png"></a></li>
-    		    		<li><a href="#"><img src="images/in-icon.png"></a></li>
-    		    		<li><a href="#"><img src="images/instagram-icon.png"></a></li>
-    		    	</ul>
-    		    </div>
-    		    <p class="copyright_text">Copyright 2019 All Right Reserved By.<a href="https://html.design"> Free  html Templates</p>
-    	    </div>
-        </div>
-    </div>
+    @include('footer')
     <!-- footer section end -->
 
 
