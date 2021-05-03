@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogs extends Migration
+class CreateSeeder extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateBlogs extends Migration
      */
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('seeder', function (Blueprint $table) {
             $table->id();
-            $table->string('user_b');
-            $table->string('email_b');
+            $table->string('name');
+            $table->string('email');
+            $table->string('password');
             $table->timestamps();
         });
-        schema::table('blogs',function(Blueprint $table)
-        {
-            $table->string('blog_name');
-        });
-        
+      //  Schema::table('seeder', function (Blueprint $table) {
+       //     $table->integer('seeder_nu');
+       // });
     }
 
     /**
@@ -33,6 +32,6 @@ class CreateBlogs extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('seeder');
     }
 }
