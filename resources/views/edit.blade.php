@@ -17,18 +17,18 @@
                     <div class="input_main">
                        <div class="container">
                         <h2 class="request_text">REQUEST A CALL BACK</h2>
-                          <form action="data_submit" method='post'>
+                          <form action="../data_update/{{$showarr->id}}" method='post'>
                           @csrf
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Your Name" name="name" required>
+                              <input type="text" class="email-bt" placeholder="Your Name" name="name" value="{{$showarr->name}}" required>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="title" name="title" required>
+                              <input type="text" class="email-bt" placeholder="title" name="title" value="{{$showarr->title}}" required>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="description" name="description" required>
+                              <input type="text" class="email-bt" placeholder="description" name="description" value="{{$showarr->description}}" required>
                             </div>
-                            <input type="submit" name="submit" />
+                            <input type="submit" name="update" />
                           </form>
                        </div> 
                     </div>

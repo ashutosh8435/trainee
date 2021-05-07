@@ -33,3 +33,10 @@ Route::get('price', function () {
     return view('price');
 });
 Route::get('one','OneRelationController@index');
+
+Route::get('show','CurdController@show');
+Route::get('data_delete/{id}','CurdController@destroy');
+Route::get('contact','CurdController@create');
+Route::post('data_submit','CurdController@store');
+Route::get('data_edit/{id}','CurdController@edit');
+Route::post('data_update/{id}','CurdController@update');

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => Str::random(10),
             'email' => Str::random(10).'@gmail.com',
             'Password' => Hash::make('Password'),
-           // 'Seeder_nu' => Integer::random(8),
+            //'Seeder_nu' => Integer::random(8),
         ]);
     }
 }

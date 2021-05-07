@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-@include('style')
+ @include('style')
 
 </head>
 <body>
 	
-   @include('header')
+    @include('header')
    
    
     @include('maincontent')
+
     @yield('content')
     
     @include('footer')
    
-   @include('scripts')
+    @include('scripts')
 
 
      
