@@ -9,6 +9,7 @@ class CreateBlogs extends Migration
     /**
      * Run the migrations.
      *
+     * 
      * @return void
      */
     public function up()
@@ -17,14 +18,12 @@ class CreateBlogs extends Migration
             $table->id();
             $table->string('user_b');
             $table->string('email_b');
+            $table->text('blog_name')->nullable();
+        
             $table->timestamps();
         });
 
-        
-        schema::table('blogs',function(Blueprint $table)
-        {
-            $table->string('blog_name');
-        });
+       
         
     }
 

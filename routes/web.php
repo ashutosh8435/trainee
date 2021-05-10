@@ -35,6 +35,10 @@ Route::get('about', function () {
 
 );
 });
+Route::get('admin/about', function () {
+    return view('admin/about');
+
+});
 Route::get('contact', function () {
     return view('contact');
 });
@@ -69,7 +73,10 @@ Route::get('price', function () {
 
 );
 });
-Route::get('one','OneRelationController@index');
+//Route::get('one','OneRelationController@index');
+// relationship
+Route::get('/addblog','blogController@addblog');
+Route::get('/addcategory/{id}','blogController@addcategory');
 
 Route::get('show','CurdController@show');
 Route::get('data_delete/{id}','CurdController@destroy');
@@ -77,3 +84,9 @@ Route::get('contact','CurdController@create');
 Route::post('data_submit','CurdController@store')->name('data_submit');
 Route::get('data_edit/{id}','CurdController@edit');
 Route::post('data_update/{id}','CurdController@update');
+
+
+//about
+Route::get('about','AboutController@show');
+Route::get('about1','AboutController@create');
+Route::post('data_about','AboutController@store')->name('data_about');

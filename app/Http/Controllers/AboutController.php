@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Curd;
+use App\Models\about;
 use Illuminate\Http\Request;
 
-class CurdController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class CurdController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -24,7 +24,7 @@ class CurdController extends Controller
      */
     public function create()
     {
-        return view('contact');
+        return view('about1');
     }
 
     /**
@@ -35,8 +35,8 @@ class CurdController extends Controller
      */
     public function store(Request $request)
     {
-        $res= new Curd;
-        $res->name=$request->input('name');
+        $res= new about;
+       // $res->name=$request->input('name');
         $res->title=$request->input('title');
         $res->description=$request->input('description');
         $res->save();
@@ -48,53 +48,45 @@ class CurdController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Curd  $curd
+     * @param  \App\Models\about  $about
      * @return \Illuminate\Http\Response
      */
-    public function show(Curd $curd)
+    public function show(about $about)
     {
-        return view('show')->with('showarr',Curd::all());
+        return view('about')->with('aboutarr',about::all());
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Curd  $curd
+     * @param  \App\Models\about  $about
      * @return \Illuminate\Http\Response
      */
-    public function edit(Curd $curd,$id)
+    public function edit(about $about)
     {
-        return view('edit')->with('showarr',Curd::find($id));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Curd  $curd
+     * @param  \App\Models\about  $about
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Curd $curd)
+    public function update(Request $request, about $about)
     {
-       $res=Curd::find($request->id);
-       $res->name=$request->input('name');
-       $res->title=$request->input('title');
-       $res->description=$request->input('description');
-    
-        $res->save();
-        $request->session()->flash('msg','data updated');
-        return redirect('show');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Curd  $curd
+     * @param  \App\Models\about  $about
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Curd $curd,$id)
+    public function destroy(about $about)
     {
-        Curd::destroy(array('id',$id));
-        return redirect('show');
+        //
     }
 }

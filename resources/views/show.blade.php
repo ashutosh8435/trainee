@@ -15,7 +15,7 @@
    <a href="contact">Add create</a>
 
    {{session('msg')}}
-  <table class="table">
+  <table class="table" id="contactform">
   <thead>
     <tr>
       <th scope="col">Sno</th>

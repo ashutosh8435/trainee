@@ -19,7 +19,7 @@
                         <h2 class="request_text">REQUEST A CALL BACK</h2>
                           <form id="contactform">
                           @csrf
-                          {{ method_field('post') }}
+                          
                             <div class="form-group">
                               <input type="text" class="email-bt" placeholder="Your Name" id="name" name="name" required>
                             </div>
@@ -29,7 +29,7 @@
                             <div class="form-group">
                               <input type="text" class="email-bt" placeholder="description" id="description" name="description" required>
                             </div>
-                            <button  class="btn btn-primary"   id="save">submit</button>
+                            <input class="btn btn-primary" type="button" id="save" value="submit">
                           </form>
                        </div> 
                     </div>
@@ -43,7 +43,7 @@
             </div>
         </div>
     </div>
-    @push("script")
+  <!-- // @push("script")
   <script >
 
 /*$('#save').on('click',function(e){
@@ -78,7 +78,7 @@
 
 
 
-  </script>
+  /*</script>
 
   <script>
   
@@ -107,7 +107,7 @@ console.log(data);
 
 });
   </script>
-  @endpush
+  @endpush*/-->
   
   @endsection
 

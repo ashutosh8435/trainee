@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+    protected $table="blogs";
     public function Category()
     {
-        return $this->hasOne('App\Models\Category');
+        return $this->hasmany('App\Models\Category');
     }
 }
 
