@@ -17,18 +17,19 @@
                     <div class="input_main">
                        <div class="container">
                         <h2 class="request_text">REQUEST A CALL BACK</h2>
-                          <form action="data_submit" method='post'>
+                          <form id="contactform">
                           @csrf
+                          {{ method_field('post') }}
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Your Name" name="name" required>
+                              <input type="text" class="email-bt" placeholder="Your Name" id="name" name="name" required>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="title" name="title" required>
+                              <input type="text" class="email-bt" placeholder="title" id="title" name="title" required>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="description" name="description" required>
+                              <input type="text" class="email-bt" placeholder="description" id="description" name="description" required>
                             </div>
-                            <input type="submit" name="submit" />
+                            <button  class="btn btn-primary"   id="save">submit</button>
                           </form>
                        </div> 
                     </div>
@@ -42,8 +43,72 @@
             </div>
         </div>
     </div>
-    <!-- contact section end -->
-   
+    @push("script")
+  <script >
+
+/*$('#save').on('click',function(e){
+
+      e.preventDefault();
+      var name= $("#name").val();
+      var title= $("#title").val();
+      var description= $("#description").val();
+     
+      var _token= $("input[name=_token]").val();
+
+      $.ajax({
+
+        url:"{{route('data_submit')}}",
+        method:"post",
+        data:{
+          name:name,
+          title:title,
+          description:description,
+          _token:_token
+        },
+        success:function(response)
+        {
+          console.log(data);
+        }
+      });
+
+
+
+}
+);*/
+
+
+
+  </script>
+
+  <script>
+  
+$('#save').click(function(){
+   var name= $("#name").val();
+      var title= $("#title").val();
+      var description= $("#description").val();
+     
+      $.ajaxSetup({
+headers: {
+'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+}
+});
+$.ajax({
+type:'POST',
+url:"{{ url('data_submit') }}",
+data:{
+         name:name,
+          title:title,
+          description:description,
+},
+success:function(data){
+console.log(data);
+}
+});
+
+});
+  </script>
+  @endpush
+  
   @endsection
 
 

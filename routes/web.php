@@ -18,10 +18,22 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('index');
+    return view('index',
+ 
+
+
+);
 });
 Route::get('about', function () {
-    return view('about');
+    return view('about',
+    [
+        "name" => "ABOUT OUR GYM ",
+        "title"=>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and webIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web"
+    ]
+
+
+
+);
 });
 Route::get('contact', function () {
     return view('contact');
@@ -30,13 +42,38 @@ Route::get('gym', function () {
     return view('gym');
 });
 Route::get('price', function () {
-    return view('price');
+    return view('price',
+     
+        [
+            "users" => array(
+                array(
+                    "plan"=>"Beginerplan",
+                    "price"=>"$40",
+                    "title"=>"Unlimited access to the gym 3 classes per week One Year memberships"
+                ),
+                array(
+                    "plan"=>"primium plan",
+                    "price"=>"$60",
+                    "title"=>"Unlimited access to the gym 3 classes per week One Year memberships"
+                ),
+                array(
+                    "plan"=>"ultimate plan",
+                    "price"=>"$70",
+                    "title"=>"Unlimited access to the gym 3 classes per week One Year memberships"
+                )
+            )
+        ]
+    
+
+
+
+);
 });
 Route::get('one','OneRelationController@index');
 
 Route::get('show','CurdController@show');
 Route::get('data_delete/{id}','CurdController@destroy');
 Route::get('contact','CurdController@create');
-Route::post('data_submit','CurdController@store');
+Route::post('data_submit','CurdController@store')->name('data_submit');
 Route::get('data_edit/{id}','CurdController@edit');
 Route::post('data_update/{id}','CurdController@update');

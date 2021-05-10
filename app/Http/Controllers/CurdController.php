@@ -41,6 +41,7 @@ class CurdController extends Controller
         $res->description=$request->input('description');
         $res->save();
         $request->session()->flash('msg','data submitted');
+    
         return redirect('show');
     }
 

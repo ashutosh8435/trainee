@@ -11,13 +11,15 @@
             of a page when looking at its layout. The point of using Lorem Ipsum is tha</p>
             <div class="price_section_2">
                 <div class="row">
+                @foreach( $users as $user)
+
+                
                     <div class="col-sm-12 col-lg-4">
                         <div class="beginner">
-                            <h2 class="beginner_text">BEGINNER PLAN</h2>
-                            <h1 class="plan_text">$40</h1>
-                            <P class="access_text">Unlimited access to the gym</P>
-                            <P class="access_text">3 classes per week</P>
-                            <P class="access_text">One Year memberships</P>
+                            <h2 class="beginner_text">{{ $user['plan'] }}</h2>
+                            <h1 class="plan_text">{{ $user['price'] }}</h1>
+                            <P class="access_text">{{$user['title']}}</P>
+                           
                             <P class="access_text">FREE drinking package</P>
                             <P class="free_text">1 Free personal training</P>
                         </div>
@@ -25,7 +27,8 @@
                             <div class="select_bt"><a href="#">SELECT PLAN</a></div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-4">
+                    @endforeach
+                  <!--  <div class="col-sm-12 col-lg-4">
                         <div class="premium">
                             <h2 class="beginner_text">PREMIUM PLAN</h2>
                             <h1 class="plan_text">$40</h1>
@@ -52,7 +55,7 @@
                         <div class="select_boton">
                             <div class="select_bt"><a href="#">SELECT PLAN</a></div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
