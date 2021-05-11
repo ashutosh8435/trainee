@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Console\Commands;
-
+use App\Models\Blog;
 use Illuminate\Console\Command;
-
+use Illuminate\Support\Facades\DB;
 class users extends Command
 {
     /**
@@ -37,11 +37,29 @@ class users extends Command
      */
     public function handle()
     {
-       $name=$this->ask("what is your name");
-       $this->info($name);
-       $lname=$this->ask("what is your last name");
-       $this->info($lname);
-       $address=$this->ask("what is your address");
-       $this->info($address);
+    
+     $this->info("enter your details");
+   
+      $name=$this->ask("what is your user blog");
+   
+     $lastname=$this->ask("what is your email blog");
+   
+     $address=$this->ask("what is your address");
+     if ($this->confirm('Is this information correct?'))
+      {
+                $blog=new Blog();
+                $blog->user_b=$name;
+                $blog->email_b=$lastname;
+                $blog->blog_name=$address;
+                $blog->save();
+     }
+     if ($this->confirm('Is this information show?')) {
+
+        $headers = [ 'id', 'user_b', 'email_b','blog_name' ];
+        $blogs = Blog::all( [ 'id', 'user_b', 'email_b','blog_name' ])->toArray();
+        $this->table($headers, $blogs);
+
     }
+    return 0;
+}
 }

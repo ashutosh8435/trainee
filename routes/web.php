@@ -46,37 +46,30 @@ Route::get('gym', function () {
     return view('gym');
 });
 Route::get('price', function () {
-    return view('price',
-     
-        [
-            "users" => array(
-                array(
-                    "plan"=>"Beginerplan",
-                    "price"=>"$40",
-                    "title"=>"Unlimited access to the gym 3 classes per week One Year memberships"
-                ),
-                array(
-                    "plan"=>"primium plan",
-                    "price"=>"$60",
-                    "title"=>"Unlimited access to the gym 3 classes per week One Year memberships"
-                ),
-                array(
-                    "plan"=>"ultimate plan",
-                    "price"=>"$70",
-                    "title"=>"Unlimited access to the gym 3 classes per week One Year memberships"
-                )
-            )
-        ]
-    
-
-
-
-);
+    return view('price',);
 });
-//Route::get('one','OneRelationController@index');
+Route::get('admin/price',function()
+{
+     return view('admin.priceadmin');
+});
+
+
+
+//category
+Route::get('category',function()
+{
+     return view('category');
+});
+
+
+Route::get('gymadmin', function () {
+    return view('gymadmin');
+});
+Route::get('one','OneRelationController@index');
 // relationship
 Route::get('/addblog','blogController@addblog');
 Route::get('/addcategory/{id}','blogController@addcategory');
+Route::get('/getcategory/{id}','blogController@getcategory');
 
 Route::get('show','CurdController@show');
 Route::get('data_delete/{id}','CurdController@destroy');
@@ -90,3 +83,20 @@ Route::post('data_update/{id}','CurdController@update');
 Route::get('about','AboutController@show');
 Route::get('about1','AboutController@create');
 Route::post('data_about','AboutController@store')->name('data_about');
+
+//ourprice
+
+Route::get('price','OurpriceController@show');
+Route::get('priceadmin','OurpriceController@create');
+Route::post('data_price','OurpriceController@store')->name('data_price');
+Route::get('data_delete/{id}','OurpriceController@destroy');
+
+//gym
+Route::get('gym','gymController@show');
+Route::get('priceadmin','gymController@create');
+Route::post('data_gym','gymController@store')->name('data_gym');
+
+//category
+Route::get('category','CategoryController@show');
+Route::get('category1','CategoryController@create');
+Route::post('data_category','CategoryController@store')->name('data_category');

@@ -9,21 +9,13 @@
         <h1 class="our_text"><strong>OUR CLASSES</strong></h1>
         <p class="client_long_text">It is a long established fact that a reader will be distracted by the readable</p>
         <div class="row padding_top_0">
+        @foreach($gymarr as $gym)
           <div class="col-lg-4">
-            <div class="image_7"><a href="#"><img src="images/img-1.png"></a></div>
-            <h2 class="design_text">WEIGHTLIFTING</h2>
-            <p class="fact_text">It is a long established fact that a reader will be distracted by the readable</p>
+            <div class="image_7"><a href="#"><img src={{$gym->image}}></a></div>
+            <h2 class="design_text">{{$gym->title}}</h2>
+            <p class="fact_text">{{$gym->description}}</p>
           </div>
-            <div class="col-lg-4">
-              <div class="image_7"><a href="#"><img src="images/img-2.png"></a></div>
-            <h2 class="design_text">INDOOR CYCLING</h2>
-            <p class="fact_text">It is a long established fact that a reader will be distracted by the readable</p>
-            </div>
-            <div class="col-lg-4">
-              <div class="image_7"><a href="#"><img src="images/img-3.png"></a></div>
-            <h2 class="design_text">CORE POWER</h2>
-            <p class="fact_text">It is a long established fact that a reader will be distracted by the readable</p>
-            </div>
+            @endforeach
             <div class="bt_main">
               <div class="seemore_bt"><a href="#">See More</a></div>
             </div>

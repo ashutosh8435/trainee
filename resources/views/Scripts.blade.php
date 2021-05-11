@@ -96,5 +96,104 @@ success:function(data){
 });
 
 });
+
+//our price ajax
+
+$('#ourprice').on('click', function(e) {
+
+var pname= $("#pname").val();
+var price= $("#price").val();
+var title= $("#title").val();
+var description= $("#description").val();
+
+$.ajaxSetup({
+headers: {
+'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+});
+e.preventDefault();
+$.ajax({
+type:'POST',
+url:"{{ url('data_price') }}",
+data:{
+pname:pname,
+price:price,
+title:title,
+description:description,
+_token:"{{csrf_token()}}",
+},
+success:function(data){
+   console.log(data);
+   window.location.href = 'price';
+}
+});
+
+});
+
+
+//gym ajax
+$('#gym').on('click', function(e) {
+
+var image= $("#image").val();
+//var price= $("#price").val();
+var title= $("#title").val();
+var description= $("#description").val();
+
+$.ajaxSetup({
+headers: {
+'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+});
+e.preventDefault();
+$.ajax({
+type:'POST',
+url:"{{ url('data_gym') }}",
+data:{
+//image:image,
+//price:price,
+title:title,
+description:description,
+
+image:image,
+_token:"{{csrf_token()}}",
+},
+success:function(data){
+   console.log(data);
+   window.location.href = 'gym';
+}
+});
+
+});
+
+//ajax category
+$('#category').on('click', function(e) {
+
+var c_name= $("#c_name").val();
+//var price= $("#price").val();
+//var title= $("#title").val();
+//var description= $("#description").val();
+
+$.ajaxSetup({
+headers: {
+'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+});
+e.preventDefault();
+$.ajax({
+type:'POST',
+url:"{{ url('data_category') }}",
+data:{
+//image:image,
+//price:price,
+c_name:c_name,
+_token:"{{csrf_token()}}",
+},
+success:function(data){
+   console.log(data);
+   window.location.href = 'category1';
+}
+});
+
+});
 </script>
 

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Blog;
-use App\category;
+use App\Models\Blog;
+use App\Models\Category;
 class BlogController extends Controller
 {
     public function addblog()
@@ -21,10 +21,15 @@ class BlogController extends Controller
     {
         $blog= Blog::find($id);
         $category= new Category();
-        $category->user_c="category user";
-        $category->email_c="category@gmail.com";
-        $category->category_name="laravel category";
-        $blog->categories()->save($category);
+        $category->c_name="category 3 user";
+       // $category->email_c="category3@gmail.com";
+      //  $category->category_name="laravel 3 category";
+        $blog->Category()->save($category);
         return "category has been created successfully";
+    }
+    public function getcategory($id)
+    {
+        $category=Blog::find($id)->category;
+        return $category;
     }
 }
