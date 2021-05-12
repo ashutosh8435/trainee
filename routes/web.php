@@ -67,9 +67,8 @@ Route::get('gymadmin', function () {
 });
 Route::get('one','OneRelationController@index');
 // relationship
-Route::get('/addblog','blogController@addblog');
-Route::get('/addcategory/{id}','blogController@addcategory');
-Route::get('/getcategory/{id}','blogController@getcategory');
+
+Route::get('getcategory','blogController@getcategory');
 
 Route::get('show','CurdController@show');
 Route::get('data_delete/{id}','CurdController@destroy');
@@ -97,6 +96,12 @@ Route::get('gymadmin','gymController@create');
 Route::post('data_gym','gymController@store')->name('data_gym');
 
 //category
-Route::get('category','CategoryController@show');
-Route::get('category1','CategoryController@create');
-Route::post('data_category','CategoryController@store')->name('data_category');
+Route::get('category','categoryController@index');
+Route::post('save','categoryController@store');
+
+
+//gymadmin2
+
+
+Route::get('gymadmin2','GymimageController@index');
+Route::post('save','GymimageController@store')->name('save');

@@ -21,18 +21,23 @@
    <strong>{{$message}}</strong>
    </div>
    @endif
-  <form action="{{url('save')}}" method="post">
-  @csrf
+  <form action="{{url('save')}}" method="post" enctype="multipart/form-data " >
+  {{csrf_field()}}
   <div class="form-group">
-    <label for="exampleInputEmail1">category name</label>
-    <input type="text" class="form-control" id="cname" name="cname" aria-describedby="emailHelp" placeholder="Enter category">
+    <label for="exampleInputEmail1">image title</label>
+    <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Entet image title">
     <span class="tetx-danger">{{$errors->first('cname')}}</span>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">blog id</label>
-    <input type="text" class="form-control" id="blog_id" name="blog_id" aria-describedby="emailHelp" placeholder="blog id">
+    <label for="exampleInputEmail1">image description</label>
+    <input type="text" class="form-control" id="description" name="description" aria-describedby="emailHelp" placeholder="enter image description">
     <span class="tetx-danger">{{$errors->first('blog_id')}}</span>
   </div>
+  <div class="form-group">
+        <label for="image">image</label>
+        <input type="file" class=" " name="image" id="image" >
+        <span class="tetx-danger">{{$errors->first('image')}}</span>
+        </div><br>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
   </div>

@@ -36,7 +36,6 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $res= new about;
-       // $res->name=$request->input('name');
         $res->title=$request->input('title');
         $res->description=$request->input('description');
         $res->save();

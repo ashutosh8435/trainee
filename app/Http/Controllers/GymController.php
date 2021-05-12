@@ -37,11 +37,16 @@ class GymController extends Controller
     {
        $res= new Gym();
         
-       $res->image=$request->input('image');
+      // $res->image=$request->input('image');
         $res->title=$request->input('title');
         $res->description=$request->input('description');
+        $res->save();
+        $request->session()->flash('msg','data submitted');
+    
+        return response()->json(['success'=>'Register successfully!' ]);
+    }
 
-        if($request->hasfile('image'))
+      /*  if($request->hasfile('image'))
         {
             $file=$request->file('image');
             dd($file);

@@ -8,38 +8,37 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>category</title>
+    <title>relation</title>
   </head>
   <body>
-    <h1>category</h1>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">categoryname</th>
+      <th scope="col">blog_id</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($categoryarr as $ct)
+    
+  
+   <tbody>
+    <tr>
+     
+      <td>{{$ct->id}}</td>
+      <td>{{$ct->cname}}</td>
+      <td> {{$ct->blog_id}}</td>
+    </tr>
+   
+  </tbody>
+     @endforeach
+  </tbody>
+</table>
 
-   <div class="container">
-   
-   <div class="jumbotron jumbotron-fluid">
-   @if($message=Session::get('success'))
-   <div class="alert alert-success alert-block">
-   <strong>{{$message}}</strong>
-   </div>
-   @endif
-  <form action="{{url('save')}}" method="post">
-  @csrf
-  <div class="form-group">
-    <label for="exampleInputEmail1">category name</label>
-    <input type="text" class="form-control" id="cname" name="cname" aria-describedby="emailHelp" placeholder="Enter category">
-    <span class="tetx-danger">{{$errors->first('cname')}}</span>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">blog id</label>
-    <input type="text" class="form-control" id="blog_id" name="blog_id" aria-describedby="emailHelp" placeholder="blog id">
-    <span class="tetx-danger">{{$errors->first('blog_id')}}</span>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-  </div>
-
-   
-   
-   </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

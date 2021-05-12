@@ -9,7 +9,7 @@ class Blog extends Model
     protected $table="blogs";
     public function Category()
     {
-        return $this->hasmany('App\Models\Category');
+        return $this->hasmany(Category::class);
     }
 }
 

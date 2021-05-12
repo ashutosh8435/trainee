@@ -35,6 +35,7 @@ class OurpriceController extends Controller
      */
     public function store(Request $request)
     {
+   
          $res= new ourprice;
          $res->pname=$request->input('pname');
          $res->price=$request->input('price');

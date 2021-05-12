@@ -17,7 +17,7 @@
                     <div class="input_main">
                        <div class="container">
                         <h2 class="request_text">REQUEST A CALL BACK</h2>
-                          <form id="gymform" enctype="multipart/form-data">
+                          <form id="gymform" enctype="multipart/form-data ">
                           @csrf
                           
                           
