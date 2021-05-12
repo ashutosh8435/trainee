@@ -44,6 +44,7 @@ class GymController extends Controller
         if($request->hasfile('image'))
         {
             $file=$request->file('image');
+            dd($file);
             $extension=$file->getClinetOriginalExtension();
             $filename=time() . '.' . $extension;
             $file->move('uplods/empimage/',$filename);

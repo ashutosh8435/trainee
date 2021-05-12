@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category');
+        return view('category1');
     }
 
     /**
@@ -37,7 +37,7 @@ class CategoryController extends Controller
     {
         $res= new category;
        // $res->name=$request->input('name');
-        $res->c_name=$request->input('c_name');
+        $res->cname=$request->input('cname');
        // $res->description=$request->input('description');
         $res->save();
         $request->session()->flash('msg','data submitted');
@@ -53,7 +53,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('category1')->with('categoryarr',category::all());
+        return view('category')->with('categoryarr',category::all());
     }
 
     /**

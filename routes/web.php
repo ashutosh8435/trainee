@@ -93,7 +93,7 @@ Route::get('data_delete/{id}','OurpriceController@destroy');
 
 //gym
 Route::get('gym','gymController@show');
-Route::get('priceadmin','gymController@create');
+Route::get('gymadmin','gymController@create');
 Route::post('data_gym','gymController@store')->name('data_gym');
 
 //category

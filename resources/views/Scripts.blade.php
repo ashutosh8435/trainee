@@ -168,7 +168,7 @@ success:function(data){
 //ajax category
 $('#category').on('click', function(e) {
 
-var c_name= $("#c_name").val();
+var c_name= $("#cname").val();
 //var price= $("#price").val();
 //var title= $("#title").val();
 //var description= $("#description").val();
@@ -185,7 +185,7 @@ url:"{{ url('data_category') }}",
 data:{
 //image:image,
 //price:price,
-c_name:c_name,
+cname:cname,
 _token:"{{csrf_token()}}",
 },
 success:function(data){
