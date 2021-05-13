@@ -13,9 +13,7 @@ class GymimageController extends Controller
 
       public function store(Request $request)
       {
-        $res= new gymimage();
-        
-      
+           $res= new gymimage();
           $res->title=$request->input('title');
           $res->description=$request->input('description');
          
@@ -44,6 +42,6 @@ class GymimageController extends Controller
              $res->image='';
           }
           $res->save();
-          return view('gymadmin2')->with('res',$res);
+          return view('gymadmin2')->with('res',$gymimage);
         }
-      }
+ }

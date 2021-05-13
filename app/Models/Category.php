@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected  $table="categories";
-    protected $fillable=['cname','blog_id' ];
+    protected $fillable=['name','type'];
 
-    public function blogs()
-    {
-        return $this->belongsTo(Blog::class);
+   
+    public function blog(){
+        return $this->hasmany('App\Models\BlogCategory')->with('blog');
     }
 }

@@ -40,23 +40,23 @@ class users extends Command
     
      $this->info("enter your details");
    
-      $name=$this->ask("what is your user blog");
+      $title=$this->ask("enter user blog title");
    
-     $lastname=$this->ask("what is your email blog");
+     $content=$this->ask("enate blog content");
    
-     $address=$this->ask("what is your address");
+    
      if ($this->confirm('Is this information correct?'))
       {
                 $blog=new Blog();
-                $blog->user_b=$name;
-                $blog->email_b=$lastname;
-                $blog->blog_name=$address;
+                $blog->title=$title;
+                $blog->content=$content;
+               
                 $blog->save();
      }
      if ($this->confirm('Is this information show?')) {
 
-        $headers = [ 'id', 'user_b', 'email_b','blog_name' ];
-        $blogs = Blog::all( [ 'id', 'user_b', 'email_b','blog_name' ])->toArray();
+        $headers = [ 'id', 'title', 'content',];
+        $blogs = Blog::all( [ 'id', 'title', 'content' ])->toArray();
         $this->table($headers, $blogs);
 
     }

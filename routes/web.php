@@ -25,15 +25,7 @@ Route::get('/', function () {
 );
 });
 Route::get('about', function () {
-    return view('about',
-    [
-        "name" => "ABOUT OUR GYM ",
-        "title"=>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and webIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web"
-    ]
-
-
-
-);
+    return view('about');
 });
 Route::get('admin/about', function () {
     return view('admin/about');
@@ -56,10 +48,10 @@ Route::get('admin/price',function()
 
 
 //category
-Route::get('category',function()
-{
-     return view('category');
-});
+// Route::get('category',function()
+// {
+//      return view('category');
+// });
 
 
 Route::get('gymadmin', function () {
@@ -68,7 +60,7 @@ Route::get('gymadmin', function () {
 Route::get('one','OneRelationController@index');
 // relationship
 
-Route::get('getcategory','blogController@getcategory');
+//Route::get('getcategory','blogController@getcategory');
 
 Route::get('show','CurdController@show');
 Route::get('data_delete/{id}','CurdController@destroy');
@@ -96,9 +88,14 @@ Route::get('gymadmin','gymController@create');
 Route::post('data_gym','gymController@store')->name('data_gym');
 
 //category
-Route::get('category','categoryController@index');
-Route::post('save','categoryController@store');
 
+Route::get('category','CategoryController@index');
+Route::post('savecategory','CategoryController@store');
+
+//
+Route::get('showrelation','BlogController@index');
+Route::post('saveblog','BlogController@store');
+Route::get('blog','BlogController@create');
 
 //gymadmin2
 
