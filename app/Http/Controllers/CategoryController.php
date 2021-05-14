@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Category;
 use App\Models\Blog;
 use App\models\BlogCategory;
+use App\http\Requests\CategoryRequest;
 class CategoryController extends Controller
 {
     public function index()
@@ -14,15 +15,8 @@ class CategoryController extends Controller
         return view('category');
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-      
-        $request->validate([
-            'name' => 'required|min:3|max:191',
-            'type' => 'required|min:3|max:191',
-        ]);
-       
-
         $category=Category::create([
             'name'=>$request->name,
             'type'=>$request->type,

@@ -21,24 +21,24 @@
    <strong>{{$message}}</strong>
    </div>
    @endif
-  <form action="{{url('save')}}" method="post" enctype="multipart/form-data" >
+  <form action="../update/{{$gymimage->id}}" method="post"  >
   @csrf
   <div class="form-group">
     <label for="exampleInputEmail1">image title</label>
-    <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Entet image title">
+    <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Entet image title" value="{{$gymimage->title}}">
     <span class="tetx-danger">{{$errors->first('title')}}</span>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">image description</label>
-    <input type="text" class="form-control" id="description" name="description" aria-describedby="emailHelp" placeholder="enter image description">
+    <input type="text" class="form-control" id="description" name="description" aria-describedby="emailHelp" placeholder="enter image description" value="{{$gymimage->description}}">
     <span class="tetx-danger">{{$errors->first('description')}}</span>
   </div>
   <div class="form-group">
         <label for="image">image</label>
-        <input type="file" class=" " name="image" id="image" >
+        <input type="file" class=" " name="image" id="image" value="{{$gymimage->image}}" >
         <span class="tetx-danger">{{$errors->first('image')}}</span>
         </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">update</button>
 </form>
   </div>
 

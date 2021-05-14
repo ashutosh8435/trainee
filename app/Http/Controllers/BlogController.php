@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\BlogCategory;
+use App\http\Requests\BlogRequest;
 class BlogController extends Controller
 {
    
@@ -14,6 +15,7 @@ class BlogController extends Controller
     {
        $blog= Blog::with('blogcategory')->get();
        $category= Category::with('blog')->get();
+       dd($blog);
      //  return $category;   return $blog;
        return view('showrelation',compact('blog','category'));
       
@@ -27,16 +29,9 @@ class BlogController extends Controller
     }
    
 
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
       
-        $request->validate([
-            'title' => 'required|min:3|max:191',
-            'content' => 'required|min:3|max:191',
-            
-        ]);
-       
-
        $blog= Blog::create([
             'title'=>$request->title,
             'content'=>$request->content,
@@ -50,7 +45,7 @@ class BlogController extends Controller
      ]);
 
        
-        return redirect()->back()->with('success','blogdata insert successfully');
+        return redirect()->back()->with('success','blog data insert successfully');
     }
 
   

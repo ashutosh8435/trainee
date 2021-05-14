@@ -11,6 +11,6 @@ class Category extends Model
 
    
     public function blog(){
-        return $this->hasmany('App\Models\BlogCategory')->with('blog');
+        return $this->hasmany('App\Models\BlogCategory');
     }
 }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\gymimage;
+use App\Models\Gymimage;
+use App\http\Requests\GymimageRequest;
 class GymimageController extends Controller
 {
       public function index()
@@ -11,37 +12,68 @@ class GymimageController extends Controller
           return view('gymadmin2');
       }
 
-      public function store(Request $request)
+      public function store(GymimageRequest $request, Gymimage $gymimages)
       {
-           $res= new gymimage();
-          $res->title=$request->input('title');
-          $res->description=$request->input('description');
-         
-          if( $request->hasfile('image')){ 
-            $image = $request->file('image'); 
-            $fileName = $image->getClientOriginalName();
-            $fileExtension = $image->getClientOriginalExtension();
-            dd($fileExtension); 
-        } 
-  
-          //if($request->has('image'))
-          //{
-                // $image=$request->file('image');
-                // $reimage=time().'.'.$image->getClinetOriginalExtension();
-                // $dest=public_path('/images1');
-                // $image->move($dest,$reimage);
-             // $file=$request->file('image');
-            
-            //   $extension=$file->getClinetOriginalExtension();
-            //   $filename=time() . '.' . $extension;
-            //   $file->move('images2',$filename);
-            //   $res->image=$filename;
-         // }
-          else{
-              return $request;
-             $res->image='';
-          }
-          $res->save();
-          return view('gymadmin2')->with('res',$gymimage);
+        dd($request->file('image'));
+        if ($request->file('image')) {
+        
+          $imagepath = $request->file('image');
+          $extension=$imagepath->getClientOriginalName();
+          $imageName = time().'.'.$extension;  
+          $imagepath->move('images', $imageName);
         }
+      
+          Gymimage::create(
+            [
+            
+              'title'=>$request->title,
+              'description'=>$request->description,
+              'image'=>$imageName,
+            ]
+            );
+            return redirect()->back()->with('success','image data insert successfully');
+      }
+
+      public function show(Gymimage $gymimage)
+       {
+        return view('gym')->with('gymarr',Gymimage::all());
+       }
+      public function edit(Gymimage $gymimage,$id)
+      {
+        return view('gymedit')->with('gymimage',Gymimage::find($id));
+      }
+
+       public function update(GymimageRequest $request,Gymimage $gymimage,$id)
+       {
+        //dd($request->file('image'));
+      // dd($request->all());
+       $gymimage=Gymimage::find($id);   
+       dd($request->file('image'));    
+       //  $gymimage->title= $request->input('title');
+       //$gymimage->description= $request->input('description');
+    //       dd($request->file('image'));
+    //      if ($request->file('image')) {
+        
+    //        $imagepath = $request->file('image');
+    //       $extension=$imagepath->getClientOriginalName();
+    //       $imageName = time().'.'.$extension;  
+    //        $imagepath->move('images', $imageName);
+    //        dd($extension);
+    //        $gymimage->image=$imageName;
+    //      }
+   
+    
+     $gymimage->save();
+    //       // Gymimage::update(
+    //       //   [
+            
+          //     'title'=>$request->title,
+          //     'description'=>$request->description,
+          //     'image'=>$imageName,
+          //   ]
+          //   );
+            return redirect()->back()->with('success','update image data insert successfully');
+       }
+       
+        
  }

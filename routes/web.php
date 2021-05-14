@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,11 +80,12 @@ Route::post('data_about','AboutController@store')->name('data_about');
 
 Route::get('price','OurpriceController@show');
 Route::get('priceadmin','OurpriceController@create');
-Route::post('data_price','OurpriceController@store')->name('data_price');
+Route::post('ourprice','OurpriceController@store')->name('price');
 Route::get('data_delete/{id}','OurpriceController@destroy');
-
+Route::get('priceedit/{id}','OurpriceController@edit');
+Route::post('priceupdate/{id}','OurpriceController@update');
 //gym
-Route::get('gym','gymController@show');
+//Route::get('gym','gymController@show');
 Route::get('gymadmin','gymController@create');
 Route::post('data_gym','gymController@store')->name('data_gym');
 
@@ -99,6 +101,18 @@ Route::get('blog','BlogController@create');
 
 //gymadmin2
 
-
+Route::get('gym','GymimageController@show');
 Route::get('gymadmin2','GymimageController@index');
 Route::post('save','GymimageController@store')->name('save');
+Route::get('gymedit/{id}','GymimageController@edit');
+Route::post('update/{id}','GymimageController@update');
+
+
+// Route::post('update/{id}', function (Request $request) {
+//     dd(request()->all());
+
+//     return view('gymadmin');
+// });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

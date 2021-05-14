@@ -76,7 +76,9 @@ class CurdController extends Controller
      */
     public function update(Request $request, Curd $curd)
     {
+        
        $res=Curd::find($request->id);
+     
        $res->name=$request->input('name');
        $res->title=$request->input('title');
        $res->description=$request->input('description');

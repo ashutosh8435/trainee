@@ -99,7 +99,7 @@ success:function(data){
 
 //our price ajax
 
-$('#ourprice').on('click', function(e) {
+/*$('#ourprice').on('click', function(e) {
 
 var pname= $("#pname").val();
 var price= $("#price").val();
@@ -129,7 +129,7 @@ success:function(data){
 });
 
 });
-
+*/
 
 //gym ajax
 $('#gym').on('click', function(e) {

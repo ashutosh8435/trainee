@@ -26,6 +26,9 @@
                         <div class="select_boton">
                             <div class="select_bt"><a href="data_delete/{{$user->id}}">delete plan</a></div>
                         </div>
+                        <div class="select_boton">
+                            <div class="select_bt"><a href="priceedit/{{$user->id}}">edit</a></div>
+                        </div>
                     </div>
                     @endforeach
                   <!--  <div class="col-sm-12 col-lg-4">

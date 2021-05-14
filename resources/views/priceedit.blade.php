@@ -30,26 +30,26 @@
                              </div>
                         @endif
                         <h2 class="request_text">price details</h2>
-                          <form  action="{{url('ourprice')}}" method="post" enctype="multipart/form-data">
+                          <form  action="../priceupdate/{{$priceedit->id}}" method="post" enctype="multipart/form-data">
                           @csrf
                           <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="plan name" id="pname" name="pname" >
+                              <input type="text" class="email-bt" placeholder="plan name" id="pname" name="pname" value="{{$priceedit->pname}}">
                               <span class="tetx-danger">{{$errors->first('pname')}}</span>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="price" id="price" name="price" >
+                              <input type="text" class="email-bt" placeholder="price" id="price" name="price" value="{{$priceedit->price}}">
                               <span class="tetx-danger">{{$errors->first('price')}}</span>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="title" id="title" name="title" >
+                              <input type="text" class="email-bt" placeholder="title" id="title" name="title" value="{{$priceedit->title}}">
                               <span class="tetx-danger">{{$errors->first('title')}}</span>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="description" id="description" name="description" >
+                              <input type="text" class="email-bt" placeholder="description" id="description" name="description" value="{{$priceedit->description}}" >
                               <span class="tetx-danger">{{$errors->first('description')}}</span>
                             </div>
                           <!--  <input class="btn btn-primary" type="button"  value="submit">-->
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="submit" class="btn btn-primary">update</button>
                           </form>
                         
                        </div> 

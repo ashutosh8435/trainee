@@ -15,8 +15,8 @@ class CreateGymimagesTable extends Migration
     {
         Schema::create('gymimages', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longtext('description');
+            $table->string('title')->nullable();
+            $table->longtext('description')->nullable();
             $table->mediumtext('image')->nullable();
             $table->timestamps();
         });

@@ -1,5 +1,5 @@
 @extends('index')
-@section('title', 'ourclass')
+@section('title', 'gym')
 
     <!-- header section end -->
     <!-- our service section start -->
@@ -11,10 +11,18 @@
         <div class="row padding_top_0">
         @foreach($gymarr as $gym)
           <div class="col-lg-4">
-            <div class="image_7"><a href="#"><img src={{$gym->image}}></a></div>
-            <h2 class="design_text">{{$gym->title}}</h2>
-            <p class="fact_text">{{$gym->description}}</p>
-          </div>
+
+          <div class="card" style="width: 18rem;">
+          <img src="{{asset('images/'.$gym->image)}}" class="rounded img-fluid" alt="Cinque Terre"> 
+              <div class="card-body">
+    <h5 class="card-title">{{$gym->title}}</h5>
+    <p class="card-text">{{$gym->description}}</p>
+ 
+    <a href="gymedit/{{$gym->id}}" class="btn btn-primary">Edit</a>
+    <a href="" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+            </div>
             @endforeach
             <div class="bt_main">
               <div class="seemore_bt"><a href="#">See More</a></div>

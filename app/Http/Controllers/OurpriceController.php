@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ourprice;
 use Illuminate\Http\Request;
+use App\http\Requests\OurpriceRequest;
 
 class OurpriceController extends Controller
 {
@@ -33,7 +34,7 @@ class OurpriceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OurpriceRequest $request)
     {
    
          $res= new ourprice;
@@ -44,7 +45,8 @@ class OurpriceController extends Controller
          $res->save();
          $request->session()->flash('msg','data submitted');
      
-         return response()->json(['success'=>'Register successfully!' ]);
+        // return response()->json(['success'=>'Register successfully!' ]);
+        return redirect()->back()->with('success','price data insert successfully');
     }
 
     /**
@@ -64,9 +66,9 @@ class OurpriceController extends Controller
      * @param  \App\Models\ourprice  $ourprice
      * @return \Illuminate\Http\Response
      */
-    public function edit(ourprice $ourprice)
+    public function edit(ourprice $ourprice,$id)
     {
-        //
+        return view('priceedit')->with('priceedit',ourprice::find($id));
     }
 
     /**
@@ -76,9 +78,21 @@ class OurpriceController extends Controller
      * @param  \App\Models\ourprice  $ourprice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ourprice $ourprice)
+    public function update(OurpriceRequest $request, ourprice $ourprice,$id)
     {
-        //
+    
+        $ourprice=ourprice::find($id); 
+        $ourprice->pname=$request->input('pname');
+        $ourprice->price=$request->input('price');
+        $ourprice->title=$request->input('title');
+        $ourprice->description=$request->input('description');
+        $ourprice->save();
+        $request->session()->flash('success','data updated');
+        return redirect()->back()->with('success','price data update successfully');
+
+
+
+
     }
 
     /**
