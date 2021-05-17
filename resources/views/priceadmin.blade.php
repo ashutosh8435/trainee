@@ -1,30 +1,15 @@
 
-   @extends('index')
+@extends('index')
 @section('title', 'priceadmin')
-
 @section('content')
    
-   
-<div class="about_section_2 layout_padding">
-        <div class="container">
-            <h1 class="contact_text_2"><strong>price</strong></h1>
-            <p class="client_long_text">It is a long established fact that a reader will be distracted by the readable</p>
-        </div>
-    </div>
-    
-
-
-
- 
-
-
     <div class="contact_section ">
         <div class="row">
             <div class="col-md-6 background_bg">
                 <div class="contact_bg">
                     <div class="input_main">
                        <div class="container">
-                       @if($message=Session::get('success'))
+                          @if($message=Session::get('success'))
                           <div class="alert alert-success alert-block">
                              <strong>{{$message}}</strong>
                              </div>
@@ -38,15 +23,15 @@
                             </div>
                             <div class="form-group">
                               <input type="text" class="email-bt" placeholder="price" id="price" name="price" >
-                              <span class="tetx-danger">{{$errors->first('price')}}</span>
+                              <span class="text-danger">{{$errors->first('price')}}</span>
                             </div>
                             <div class="form-group">
                               <input type="text" class="email-bt" placeholder="title" id="title" name="title" >
-                              <span class="tetx-danger">{{$errors->first('title')}}</span>
+                              <span class="text-danger">{{$errors->first('title')}}</span>
                             </div>
                             <div class="form-group">
                               <input type="text" class="email-bt" placeholder="description" id="description" name="description" >
-                              <span class="tetx-danger">{{$errors->first('description')}}</span>
+                              <span class="text-danger">{{$errors->first('description')}}</span>
                             </div>
                           <!--  <input class="btn btn-primary" type="button"  value="submit">-->
                           <button type="submit" class="btn btn-primary">Submit</button>
@@ -63,4 +48,4 @@
        
     <!-- about section end -->
     <!-- footer section start -->
-    @endsection
+@endsection

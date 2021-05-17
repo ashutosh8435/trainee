@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Gymimage;
 use App\http\Requests\GymimageRequest;
+use File;
 class GymimageController extends Controller
 {
       public function index()
@@ -14,7 +15,7 @@ class GymimageController extends Controller
 
       public function store(GymimageRequest $request, Gymimage $gymimages)
       {
-        dd($request->file('image'));
+      
         if ($request->file('image')) {
         
           $imagepath = $request->file('image');
@@ -38,42 +39,68 @@ class GymimageController extends Controller
        {
         return view('gym')->with('gymarr',Gymimage::all());
        }
+
+
       public function edit(Gymimage $gymimage,$id)
       {
         return view('gymedit')->with('gymimage',Gymimage::find($id));
       }
 
-       public function update(GymimageRequest $request,Gymimage $gymimage,$id)
+
+
+       public function update(GymimageRequest $req,$id)
        {
-        //dd($request->file('image'));
-      // dd($request->all());
-       $gymimage=Gymimage::find($id);   
-       dd($request->file('image'));    
-       //  $gymimage->title= $request->input('title');
-       //$gymimage->description= $request->input('description');
-    //       dd($request->file('image'));
-    //      if ($request->file('image')) {
-        
-    //        $imagepath = $request->file('image');
-    //       $extension=$imagepath->getClientOriginalName();
-    //       $imageName = time().'.'.$extension;  
-    //        $imagepath->move('images', $imageName);
-    //        dd($extension);
-    //        $gymimage->image=$imageName;
-    //      }
-   
+
+        $gymimage=Gymimage::find($id);
+       
     
-     $gymimage->save();
-    //       // Gymimage::update(
-    //       //   [
-            
-          //     'title'=>$request->title,
-          //     'description'=>$request->description,
-          //     'image'=>$imageName,
-          //   ]
-          //   );
-            return redirect()->back()->with('success','update image data insert successfully');
+        if ($req->hasfile('image'))
+         {
+            $filepath='images/'.$gymimage->image;
+          
+            if(file::exists($filepath))
+           {
+              file::delete($filepath);
+           
+          }
+        
+          $imagepath = $req->file('image');
+         $extension=$imagepath->getClientOriginalName();
+        
+          $imageName = time().'.'.$extension;  
+          
+         $imagepath->move('images', $imageName);
+         
+        }
+    
+           $gymimage->title= $req->input('title');
+           $gymimage->description= $req->input('description');
+           $gymimage->image=$imageName;
+           $gymimage->save();
+         
+            return redirect()->back()->with('success','image data update successfully');
+
+
        }
+
+    
+      public function destroy($id)
+    {
+      $gymimage=Gymimage::find($id);
+    
+       $filepath='images/'.$gymimage->image;
+       
+       if(file::exists($filepath))
+       {
+      
+         file::delete($filepath);
+        
+       }
+     
+        Gymimage::destroy(array('id',$id));
+        return redirect('gym');
+    }
+    
        
         
  }

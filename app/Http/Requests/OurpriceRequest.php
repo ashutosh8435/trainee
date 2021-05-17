@@ -25,9 +25,9 @@ class OurpriceRequest extends FormRequest
     {
         return [
         'pname'=>'required',
-        'price'=>'required',
-        'title'=>'required',
-        'description'=>'required',
+        'price'=>'required|numeric',
+        'title'=>'required|min:3|max:78',
+        'description'=>'required|min:4|max:250',
         ];
     }
 }

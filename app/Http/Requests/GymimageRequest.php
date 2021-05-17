@@ -26,7 +26,7 @@ class GymimageRequest extends FormRequest
         return [
            'title'=>'required|max:200',
            'description'=>'required|min:4|max:199',
-           'image'=>'image',
+           'image'=>'required|image',
         ];
     }
 }

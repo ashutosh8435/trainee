@@ -11,7 +11,7 @@
     <title>show relationship</title>
   </head>
   <body>
-   
+   <h1>hasone<h1>
 
   <table class="table">
   <thead>
@@ -30,6 +30,33 @@
       <td>{{$blog->title}}</td>
       <td>{{$blog->content}}</td>
       <td>{{$blog->blogcategory->category->name}}<td>
+      <td>{{$blog->blogcategory->category->id}}<td>
+      </tr>
+     @endforeach
+
+
+    
+  </tbody>
+</table>
+<br><br>
+    <h1>hasmany<h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">type</th>
+      
+     
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($category as $blo)
+    <tr>
+      <th scope="row">{{$blo->id}}</th>
+      <td>{{$blo->name}}</td>
+      <td>{{$blo->type}}</td>
+    
       </tr>
      @endforeach
 

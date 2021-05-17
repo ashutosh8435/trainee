@@ -16,7 +16,7 @@
 
 
  
-
+    <li><a href="price">price</a></li>
 
     <div class="contact_section ">
         <div class="row">
@@ -30,8 +30,9 @@
                              </div>
                         @endif
                         <h2 class="request_text">price details</h2>
-                          <form  action="../priceupdate/{{$priceedit->id}}" method="post" enctype="multipart/form-data">
+                          <form  action="{{ url('priceupdate/'.$priceedit->id) }}" method="post" enctype="multipart/form-data">
                           @csrf
+                          {{method_field('PUT')}}
                           <div class="form-group">
                               <input type="text" class="email-bt" placeholder="plan name" id="pname" name="pname" value="{{$priceedit->pname}}">
                               <span class="tetx-danger">{{$errors->first('pname')}}</span>

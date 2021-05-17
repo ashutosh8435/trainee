@@ -12,7 +12,7 @@
   </head>
   <body>
     <h1>category</h1>
-
+    <li><a href="showrelation">HOME</a></li>  
    <div class="container">
    
    <div class="jumbotron jumbotron-fluid">

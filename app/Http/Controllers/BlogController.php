@@ -13,9 +13,9 @@ class BlogController extends Controller
    
     public function index()
     {
-       $blog= Blog::with('blogcategory')->get();
-       $category= Category::with('blog')->get();
-       dd($blog);
+       $blog= Blog::get();
+       $category= Category::get();
+      // dd($blog);
      //  return $category;   return $blog;
        return view('showrelation',compact('blog','category'));
       

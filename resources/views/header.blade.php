@@ -8,27 +8,58 @@
                     <div class="menu_text">
                         <ul>
                             <li><a href="/">HOME</a></li>                                                    
-                            <li><a href="about">ABOUT</a></li>
-                            <li><a href="price">PACKAGE</a></li>
-                            <li><a href="gym">TRAINING</a></li>
-                            <li><a href="contact">CONTACT US</a></li>
-                            <li><a href="#"><img src="images/search-icon.png"></a></li>
+                            @guest
+                            <li >
+                                <a  href="{{ url('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li >
+                                    <a  href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                           
+                       
+                            <li> <a href="{{ url('about') }}">About</a></li>
+                            <li><a href="{{ url('price') }}">Price</a></li>
+                            <li><a href="{{ url('gym') }}">gym</a></li>
+                            <li><a href="{{ url('contact') }}">CONTACT US</a></li>
+                           <li> <a   href="/" > USER:
+                                    {{ Auth::user()->name }}
+                                </a></li>
+                            <!-- <li><a href="#"><img src="images/search-icon.png"></a></li> -->
                             <div id="myNav" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
-                  <a href="/">HOME</a>
-                  <a href="about">ABOUT</a>
-                  <a href="price">PRICE</a>
-                  <a href="gym">GYM</a>
-                  <a href="class">CLASS</a>
-                  <a href="contact">CONTACT US</a>
-                  <a href="#">LOGIN</a>
-                  <a href="#">REGISTER</a>
+                  <a href="/">Home</a>
+                  <a href="{{ url('gymadmin2') }}">gym admin</a>
+                  <a href="{{ url('priceadmin') }}">Price admin</a>
+                  <a href="blog">Blog admin</a>
+                  <a href="category">Category admin</a>
+                  
+                
+                               
+
+                                <div  aria-labelledby="navbarDropdown">
+                                    <a  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            
+                  <!-- <a href="{{url('auth/login')}}">LOGIN</a>
+                  <a href="{{'auth/registr'}}">REGISTER</a> -->
                 </div>
                 </div>
                 <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle.png" class="toggle_menu"></span>
                 </div>  
                 </li>
+                @endguest
                         </ul>
                     </div>
             </div>

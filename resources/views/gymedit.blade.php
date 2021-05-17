@@ -8,10 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>category</title>
+    <title>gymadmin</title>
   </head>
   <body>
-    <h1>category</h1>
+   
 
    <div class="container">
    
@@ -21,8 +21,9 @@
    <strong>{{$message}}</strong>
    </div>
    @endif
-  <form action="../update/{{$gymimage->id}}" method="post"  >
+  <form action="{{ url('update/'.$gymimage->id) }}" method="post" enctype="multipart/form-data">
   @csrf
+  {{method_field('PUT')}}
   <div class="form-group">
     <label for="exampleInputEmail1">image title</label>
     <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Entet image title" value="{{$gymimage->title}}">
